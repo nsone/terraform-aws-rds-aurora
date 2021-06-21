@@ -194,7 +194,7 @@ resource "aws_rds_cluster" "global" {
   kms_key_id = var.kms_key_id
 
   database_name   = var.database_name
-  master_username = var.username == "" ? null : var.username
+  master_username = var.username
   master_password = var.password == "" ? random_password.master_password.result : var.password
 
   final_snapshot_identifier = "${var.final_snapshot_identifier_prefix}-${var.name_prefix}-${random_id.snapshot_identifier.hex}"
